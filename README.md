@@ -1,2 +1,2 @@
 # qml
-qml test
+qt quick/qml test
