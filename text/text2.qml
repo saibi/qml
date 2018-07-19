@@ -4,5 +4,6 @@ Text {
 	id: label
 	text: "Hello world"
 	height: 50
+	font.family: "Helvetica"
 	font.pixelSize: 40
 }
