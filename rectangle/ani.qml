@@ -32,10 +32,22 @@ Rectangle {
 		color: "green"
 		Rectangle {
 			color: "blue"
-			x: -70
+            x: 100
 			y: 10
-			width: 50
-			height: 50
+            width: 100
+            height: 100
+
+            opacity: mousearea.containsMouse ? 0 : 1
+
+            Behavior on opacity {
+                NumberAnimation { duration: 1000 }
+            }
+
+            MouseArea {
+                id: mousearea
+                anchors.fill: parent
+                hoverEnabled: true
+            }
 			
 		}
 	}
