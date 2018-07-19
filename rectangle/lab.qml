@@ -32,10 +32,10 @@ Rectangle {
 		color: "green"
 		Rectangle {
 			color: "blue"
-			x: -10
+			x: -70
 			y: 10
-			width: 10
-			height: 10
+			width: 50
+			height: 50
 		}
 	}
 }
