@@ -4,6 +4,7 @@ Rectangle {
 	width: 400; height: 200; color: "lightblue"
 
 	Text {
+		id: textarea
 		anchors.horizontalCenter: parent.horizontalCenter
 		anchors.verticalCenter: parent.verticalCenter
 		text: "Press me"
@@ -16,6 +17,19 @@ Rectangle {
 			onPressed: parent.color = "green"
 			onReleased: parent.color = "grey"
 			hoverEnabled: true
+		}
+	}
+
+	Rectangle {
+		width: 50
+		height: 50
+		y: textarea.height 
+		color: "yellow"
+
+		MouseArea {
+			anchors.fill: parent
+			onPressAndHold: parent.color = "red"
+			onReleased: parent.color = "yellow"
 		}
 	}
 }
