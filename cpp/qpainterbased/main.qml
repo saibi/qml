@@ -15,5 +15,10 @@ Window {
             x: 50; y: 50
             width: 200; height: 100
         }
+
+        MyTriangle {
+            x: 50; y: 300
+            width: 200; height: 100
+        }
     }
 }
