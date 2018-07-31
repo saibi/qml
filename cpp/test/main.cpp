@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "mytimer.h"
 #include <qqml.h>
+#include "mytimer.h"
+#include "intervalsettings.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
 	QGuiApplication app(argc, argv);
 
 	qmlRegisterType<MyTimer>("MyComponents", 1, 0, "MyTimer");
+	qmlRegisterType<IntervalSettings>("MyComponents", 1, 0, "IntervalSettings");
 
 	QQmlApplicationEngine engine;
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

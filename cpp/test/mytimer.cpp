@@ -1,7 +1,7 @@
 #include "mytimer.h"
 #include <QDebug>
 
-MyTimer::MyTimer(QObject *parent) : QObject(parent), m_timer( new QTimer(this))
+MyTimer::MyTimer(QObject *parent) : QObject(parent), m_timer( new QTimer(this)), m_settings( new IntervalSettings)
 {
 	connect(m_timer, SIGNAL(timeout()), this, SIGNAL(timeout()));
 	qDebug("MyTimer %p created", m_timer);
@@ -13,21 +13,36 @@ MyTimer::~MyTimer()
 	delete m_timer;
 }
 
-void MyTimer::setInterval(int msec)
+void MyTimer::setInterval(IntervalSettings *settings)
 {
-	if ( m_timer->interval() == msec )
-		return;
-
-	m_timer->stop();
-	m_timer->setInterval(msec);
-	m_timer->start();
-	Q_EMIT intervalChanged();
+	if ( m_settings != settings )
+	{
+		delete m_settings;
+		m_settings = settings;
+		emit intervalChanged();
+	}
 }
 
-int MyTimer::interval()
+IntervalSettings * MyTimer::interval() const
 {
-	return m_timer->interval();
+	return m_settings;
 }
+
+//void MyTimer::setInterval(int msec)
+//{
+//	if ( m_timer->interval() == msec )
+//		return;
+
+//	m_timer->stop();
+//	m_timer->setInterval(msec);
+//	m_timer->start();
+//	Q_EMIT intervalChanged();
+//}
+
+//int MyTimer::interval()
+//{
+//	return m_timer->interval();
+//}
 
 bool MyTimer::active()
 {
@@ -36,6 +51,7 @@ bool MyTimer::active()
 
 void MyTimer::start()
 {
+	m_timer->setInterval(m_settings->timeoutInMilliSeconds());
 	if ( m_timer->isActive() )
 		return;
 

@@ -12,7 +12,11 @@ Window {
         anchors.fill: parent
         MyTimer {
             id: timer
-            interval: timer.randomInterval(500, 1500)
+//            interval: timer.randomInterval(500, 1500)
+            interval: IntervalSettings {
+                duration: 2
+                unit: IntervalSettings.Seconds
+            }
 
             onTimeout: {
                 console.log("Timer fired!");
