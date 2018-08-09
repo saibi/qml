@@ -151,6 +151,15 @@ Rectangle {
 					height: 100
 
 					color: "#123456"
+
+
+					TextInput {
+						id: field1
+						anchors.left: parent.left
+						anchors.top: parent.top
+						font.pixelSize: 24
+						color: "white"
+					}
 				}
 
 				Rectangle {
@@ -164,7 +173,7 @@ Rectangle {
 						pinch {
 							target: parent
 							minimumScale: 0.5
-							maximumScale: 4.0
+							maximumScale: 10.0
 							minimumRotation: -3600
 							maximumRotation: 3600
 							minimumX: 50
@@ -172,6 +181,28 @@ Rectangle {
 
 							dragAxis: Pinch.XAndYAxis
 						}
+					}
+				}
+
+				Text {
+					text: "Hello Pinch"
+					x: 50; y: 100
+					font.pixelSize: 40
+					PinchArea {
+						anchors.fill: parent
+						pinch {
+							target: parent
+							minimumScale: 0.1
+							maximumScale: 80.0
+							minimumRotation: -3600
+							maximumRotation: 3600
+							dragAxis: Pinch.XAndYAxis
+						}
+						onPinchFinished: {
+							field1.text = parent.font.pixelSize + " " + parent.scale.toFixed(1) + " " + parent.rotation.toFixed(1);
+
+						}
+
 					}
 				}
 			}
