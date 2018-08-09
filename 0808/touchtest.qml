@@ -55,16 +55,39 @@ Rectangle {
 				anchors.fill: parent;
 
 
-				Text {
+				Rectangle {
+					id: textarea
 					anchors.horizontalCenter: parent.horizontalCenter
 					anchors.verticalCenter: parent.verticalCenter
-					text: "Press me"
-					font.pixelSize: 48
+					width: 200
+					height: 80
+					color: "yellow"
 
-					MouseArea {
+					Text {
 						anchors.fill: parent
-						onPressed: parent.color = "green"
-						onReleased: parent.color = "black"
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
+						text: "Press me"
+						font.pixelSize: 48
+						font.bold: true
+
+						MouseArea {
+							anchors.fill: parent
+							onPressed: {
+								parent.color = "green";
+								textarea.color = "yellow";
+								parent.verticalAlignment = Text.AlignBottom;
+							}
+							onReleased: {
+								parent.color = "black";
+								textarea.color = "yellow";
+								parent.verticalAlignment = Text.AlignVCenter;
+							}
+							onPressAndHold: {
+								parent.color = "blue";
+								textarea.color = "white";
+							}
+						}
 					}
 				}
 			}
