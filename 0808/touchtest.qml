@@ -131,12 +131,20 @@ Rectangle {
 
 				Rectangle {
 					x: 200; y: 200 
-					width: 100; height: 100
+					width: 200; height: 200
 					color: "yellow"
+					radius: 10.0
 
 					PinchArea {
-						pinch.target: parent
-						pinch.dragAxis: Pinch.XAndYAxis
+						anchors.fill: parent
+						pinch {
+							target: parent
+							minimumScale: 0.5
+							maximumScale: 4.0
+							minimumRotation: -3600
+							maximumRotation: 3600
+							dragAxis: Pinch.XAndYAxis
+						}
 					}
 				}
 			}
