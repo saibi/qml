@@ -118,6 +118,27 @@ Rectangle {
 			Rectangle {
 				color: "pink"
 				anchors.fill: parent
+
+				Rectangle {
+					anchors.top: parent.top
+					anchors.left: parent.left
+					anchors.right: parent.right
+
+					height: 100
+
+					color: "#123456"
+				}
+
+				Rectangle {
+					x: 200; y: 200 
+					width: 100; height: 100
+					color: "yellow"
+
+					PinchArea {
+						pinch.target: parent
+						pinch.dragAxis: Pinch.XAndYAxis
+					}
+				}
 			}
 		}
 
