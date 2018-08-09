@@ -143,6 +143,9 @@ Rectangle {
 							maximumScale: 4.0
 							minimumRotation: -3600
 							maximumRotation: 3600
+							minimumX: 50
+							minimumY: 50
+
 							dragAxis: Pinch.XAndYAxis
 						}
 					}
