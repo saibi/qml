@@ -101,6 +101,7 @@ Rectangle {
 
 				MultiPointTouchArea {
 					anchors.fill: parent
+					mouseEnabled: false
 					touchPoints: [
 						TouchPoint { id: pt1 },
 						TouchPoint { id: pt2 },
