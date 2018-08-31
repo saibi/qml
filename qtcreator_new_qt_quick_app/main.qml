@@ -74,6 +74,7 @@ Window {
                 Image {
                     x: 50
                     source: "backbutton.png"
+                    scale: 2.5
 
                     NumberAnimation on y {
                         id: ani
