@@ -1,0 +1,54 @@
+import QtQuick 2.5
+import QtQuick.Particles 2.0
+
+Rectangle {
+	id: root
+
+	width: 480 
+	height: 160
+	color: "#1f1f1f"
+
+	ParticleSystem {
+		id: particleSystem
+	}
+
+	Emitter {
+		id: emitter
+		anchors.left: parent.left 
+		anchors.verticalCenter: parent.verticalCenter
+		width: 1
+		height: 1
+		system: particleSystem
+		lifeSpan: 6400
+		lifeSpanVariation: 400
+		size: 32
+
+		velocity: AngleDirection {
+			angle: 0
+			angleVariation: 15
+			magnitude: 100
+			magnitudeVariation: 50
+		}
+	}
+
+	ImageParticle {
+		source: '../images/particle.png'
+		system: particleSystem
+		color: '#FFD700'
+		colorVariation: 0.2
+		rotation:15
+		rotationVariation: 5
+		rotationVelocity: 45
+		rotationVelocityVariation: 15
+		entryEffect: ImageParticle.Scale
+	}
+
+	Gravity {
+		width: 240
+		height:240
+		system: particleSystem
+		magnitude: 50
+		angle: 90
+		Tracer {}
+	}
+}
