@@ -1,0 +1,2 @@
+add .qml example files without creating a seperate project.
+to test, apply .qml code to the main.qml manually.
