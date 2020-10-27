@@ -5,3 +5,4 @@ Makefile
 .qmake.stash
 build-*-Release/
 build-*-Debug/
+*.pro.user
