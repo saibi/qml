@@ -1,0 +1,7 @@
+*.tgz
+*.qmlc
+*.o
+Makefile
+.qmake.stash
+build-*-Release/
+build-*-Debug/
